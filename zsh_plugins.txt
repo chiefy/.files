@@ -1,0 +1,4 @@
+urbainvaes/fzf-marks
+wfxr/forgit
+Aloxaf/fzf-tab
+denysdovhan/spaceship-prompt
