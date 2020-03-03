@@ -1,0 +1,6 @@
+location:Selkirk,US
+fetch_cmd:curl -sf
+units:imperial
+show_daylight:false
+symbols:true
+show_uvi:false

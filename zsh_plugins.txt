@@ -2,3 +2,10 @@ urbainvaes/fzf-marks
 wfxr/forgit
 Aloxaf/fzf-tab
 denysdovhan/spaceship-prompt
+fcambus/ansiweather
+webyneter/docker-aliases
+reegnz/jq-zsh-plugin
+dbz/kube-aliases
+bobsoppe/zsh-ssh-agent
+MichaelAquilina/zsh-you-should-use
+zpm-zsh/colors 

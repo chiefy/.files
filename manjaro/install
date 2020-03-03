@@ -4,13 +4,31 @@ dothome=~/.dotfiles
 
 yay -S \
 	zsh \
+	alsa-utils \
 	zsh-completions \
 	antibody \
 	fzf \
-	powerline-fonts &&
-	chsh -s /usr/bin/zsh &&
-	ln -s ${dothome}/zshrc ~/.zshrc &&
-	mkdir -p ~/.ssh/ &&
+	jq \
+	bc \
+	curl \
+	ytmdl \
+	polybar \
+	kitty \
+	kitty-terminfo \
+	rofi \
+	powerline-fonts
+
+chsh -s /usr/bin/zsh && ln -s ${dothome}/zshrc ~/.zshrc
+
+ln -s ${dothome}/ansiweatherrc ~/.ansiweatherrc
+
+rm -f ~/.i3/config
+ln -s ${dothome}/config/i3/config ~/.i3/config
+
+rm -rf ~/.config/polybar
+ln -s ${dothome}/config/polybar ~/.config/polybar
+
+mkdir -p ~/.ssh/ &&
 	touch ~/.ssh/authorized_keys &&
 	chmod 600 ~/.ssh/authorized_keys &&
 	cat <<EOF >~/.ssh/authorized_keys
