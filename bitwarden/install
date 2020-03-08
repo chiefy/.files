@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+df=${HOME}/.dotfiles/bin
+mkdir -p ${df}
+session=
+
+if [ $(uname) == "Linux" ]; then
+    sudo snap install bw
+else
+    brew install bitwarden-cli
+fi
+
+if bw login >/dev/null; then
+    echo "Already logged into bitwarden"
+fi
+session=$(bw unlock --raw)
+
+get_item() {
+    local id=${1:?"use bitwarden item uuid"}
+    local name=${2:?"use alias name for script location"}
+    local script_location=${df}/${name}
+
+    bw get item --session=${session} ${id} |
+        jq -r '.notes' >${script_location} && chmod +x ${script_location}
+}
+
+get_item 1472eee2-0429-46d5-97a0-ab7800fbf65d cert
+get_item 7b026b87-a3b5-4fba-b235-ab7800fc2aeb s2aws

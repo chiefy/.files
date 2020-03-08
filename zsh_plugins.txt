@@ -9,3 +9,4 @@ dbz/kube-aliases
 bobsoppe/zsh-ssh-agent
 MichaelAquilina/zsh-you-should-use
 zpm-zsh/colors 
+zsh-users/zsh-history-substring-search 
