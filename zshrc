@@ -22,15 +22,14 @@ fpath+=(
 
 znap compdef _kubectl 'kubectl completion  zsh'
 
-znap source zpm-zsh/colors 
-znap source zsh-users/zsh-history-substring-search 
+znap source marlonrichert/zcolors
+znap eval zcolors "zcolors ${(q)LS_COLORS}"
+
+znap source marlonrichert/zsh-autocomplete
 znap source bobsoppe/zsh-ssh-agent
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
-znap source zsh-users/zsh-syntax-highlighting
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 znap eval starship 'starship init --print-full-init zsh'
 znap prompt
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+znap source zsh-users/zsh-syntax-highlighting

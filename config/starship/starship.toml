@@ -30,3 +30,6 @@ ssh_only = true
 format =  "on [$hostname](bold red) "
 trim_at = ".companyname.com"
 disabled = false
+
+[golang]
+format = "via [🏎💨 $version](bold cyan) "
