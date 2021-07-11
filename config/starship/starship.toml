@@ -14,22 +14,19 @@ truncation_symbol = "…/"
 [aws]
 format = ' [$symbol($profile )(\($region\) )]($style)'
 style = "bold blue"
-[aws.region_aliases]
-ap-southeast-2 = "au"
-us-east-1 = "va"
 
-[git_status]
-conflicted = "🏳"
-ahead = "🏎💨"
-behind = "😰"
-diverged = "😵"
-untracked = "🤷‍"
-stashed = "📦"
-modified = "📝"
-staged = '[++\($count\)](green)'
-renamed = "👅"
-deleted = "🗑"
+[aws.region_aliases]
+ap-southeast-1 = "apac_1"
+ap-southeast-2 = "apac_2"
+us-east-1 = "us_e1"
+us-west-2 = "us_w2"
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 cherry_pick = "[🍒 PICKING](bold red)"
+
+[hostname]
+ssh_only = true
+format =  "on [$hostname](bold red) "
+trim_at = ".companyname.com"
+disabled = false
