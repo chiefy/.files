@@ -1,23 +1,36 @@
-#!/usr/bin/env zsh
+#!/usr/local/bin/zsh
 
 export PATH="$HOME/Work/go/bin:~/.dotfiles/bin:/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export STARSHIP_CONFIG=~/.dotfiles/config/starship/starship.toml
 
-# .zsh_history
+source ~/.zsh-snap/zsh-snap/znap.zsh
+
+. $HOME/.asdf/asdf.sh
+
+# History
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=$(( 50 * 1000 ))       # For readability
+HISTSIZE=$(( 1.2 * SAVEHIST ))  # Zsh recommended value
 setopt appendhistory
 
-autoload -U compinit
-compinit
-autoload -U promptinit
-promptinit
+fpath+=(
+    ~[asdf-vm/asdf]/completions
+    ~[asdf-community/asdf-direnv]/completions
+    ~[zsh-users/zsh-completions]/src
+)
 
-[ -f ~/.dotfiles/config/spaceship/exports.sh ] && source ~/.dotfiles/config/spaceship/exports.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+znap compdef _kubectl 'kubectl completion  zsh'
 
-source <(antibody init)
-antibody bundle <~/.dotfiles/zsh_plugins.txt
+znap source zpm-zsh/colors 
+znap source zsh-users/zsh-history-substring-search 
+znap source bobsoppe/zsh-ssh-agent
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+znap source zsh-users/zsh-syntax-highlighting
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+znap eval starship 'starship init --print-full-init zsh'
+znap prompt
